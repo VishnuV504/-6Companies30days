@@ -11,7 +11,6 @@ class Solution {
             if(hs.get(key)==1)return -1;
             int num=hs.get(key);
             if(num%3==0)count+=num/3;
-            else if(num%3==1) count+=num/3+1;
             else count+=num/3+1;
         }
         return count;
