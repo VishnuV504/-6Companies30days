@@ -4,18 +4,14 @@ class Solution {
         int pre[]=new int[n];
         while(i<n){
             if(s.charAt(i)!=s.charAt(j)){
-                i++;
-            }
-            else{
-                while(i<n&&s.charAt(i)==s.charAt(j)){
-                    pre[i]=j+1;
-                    i++;
-                    j++;
-                }
-                while(i<n&&s.charAt(i)!=s.charAt(j)&&j!=0){
+                while(j>0&&s.charAt(i)!=s.charAt(j))
                     j=pre[j-1];
-                }
             }
+            if(s.charAt(i)==s.charAt(j)){
+                pre[i]=j+1;
+                j++;
+            }
+            i++;
         }
         return s.substring(0,pre[n-1]);
     }
