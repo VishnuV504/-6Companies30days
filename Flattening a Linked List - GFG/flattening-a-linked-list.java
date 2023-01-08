@@ -119,69 +119,47 @@ class Node
     the flattened linked list. */
 class GfG
 {
-        Node merge(Node a, Node b)
-    {
-        // if first linked list is empty then second
-        // is the answer
-        if (a == null)
-            return b;
- 
-        // if second linked list is empty then first
-        // is the result
-        if (b == null)
-            return a;
- 
-        // compare the data members of the two linked lists
-        // and put the larger one in the result
-        Node result;
- 
-        if (a.data < b.data) {
-            result = a;
-            result.bottom= merge(a.bottom, b);
-        }
- 
-        else {
-            result = b;
-            result.bottom = merge(a, b.bottom);
-        }
- 
-        result.next = null;
-        return result;
-    }
- 
     Node flatten(Node root)
     {
-        // Base Cases
-        if (root == null || root.next == null)
-            return root;
- 
-        // recur for list on right
-        root.next = flatten(root.next);
- 
-        // now merge
-        root = merge(root, root.next);
- 
-        // return the root
-        // it will be in turn merged with its left
-        return root;
+	// Your code here
+	    if(root==null)return root;
+	    Node temp=merge(root,null);
+	    root=root.next;
+	    while(root!=null){
+	       //System.out.println("h");
+	        temp=merge(root,temp);
+	        root=root.next;
+	    }
+	    return temp;
     }
- 
-    /* Utility function to insert a node at beginning of the
-       linked list */
-    Node push(Node head_ref, int data)
-    {
-        /* 1 & 2: Allocate the Node &
-                  Put in the data*/
-        Node new_node = new Node(data);
- 
-        /* 3. Make next of new Node as head */
-        new_node.bottom = head_ref;
- 
-        /* 4. Move the head to point to new Node */
-        head_ref = new_node;
- 
-        /*5. return to link it back */
-        return head_ref;
+    Node merge(Node root,Node prev){
+        Node ans=new Node(-1);Node dummy=ans;
+        //System.out.println("he");
+        while(root!=null&&prev!=null){
+            if(prev.data<root.data){
+                Node temp=new Node(prev.data);
+                ans.bottom=temp;
+                prev=prev.bottom;
+            }
+            else{
+                Node temp=new Node(root.data);
+                ans.bottom=temp;
+                root=root.bottom;
+            }
+            ans=ans.bottom;
+        }
+        while(root!=null){
+            Node temp=new Node(root.data);
+            ans.bottom=temp;
+            root=root.bottom;
+            ans=ans.bottom;
+        }
+        while(prev!=null){
+            Node temp=new Node(prev.data);
+            ans.bottom=temp;
+            prev=prev.bottom;
+            ans=ans.bottom;
+        }
+        return dummy.bottom;
     }
-
 }
