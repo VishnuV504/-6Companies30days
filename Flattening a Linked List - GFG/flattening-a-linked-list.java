@@ -99,7 +99,6 @@ class Flatttening_A_LinkedList
 }
 // } Driver Code Ends
 
-
 /*Node class  used in the program
 class Node
 {
@@ -134,29 +133,24 @@ class GfG
     }
     Node merge(Node root,Node prev){
         Node ans=new Node(-1);Node dummy=ans;
-        //System.out.println("he");
         while(root!=null&&prev!=null){
             if(prev.data<root.data){
-                Node temp=new Node(prev.data);
-                ans.bottom=temp;
+                ans.bottom=prev;
                 prev=prev.bottom;
             }
             else{
-                Node temp=new Node(root.data);
-                ans.bottom=temp;
+                ans.bottom=root;
                 root=root.bottom;
             }
             ans=ans.bottom;
         }
         while(root!=null){
-            Node temp=new Node(root.data);
-            ans.bottom=temp;
+            ans.bottom=root;
             root=root.bottom;
             ans=ans.bottom;
         }
         while(prev!=null){
-            Node temp=new Node(prev.data);
-            ans.bottom=temp;
+            ans.bottom=prev;
             prev=prev.bottom;
             ans=ans.bottom;
         }
