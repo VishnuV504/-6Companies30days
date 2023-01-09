@@ -11,7 +11,7 @@ Flatten the Link List such that all the nodes appear in a single level while mai
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
+<pre><span style="font-size:18px"><strong>Input:
 </strong>5 -&gt; 10 -&gt; 19 -&gt; 28
 |     |     |     | 
 7     20    22   35
@@ -25,13 +25,13 @@ Output: </strong>&nbsp;5-&gt; 7-&gt; 8- &gt; 10 -&gt; 19-&gt; 20-&gt;
 The resultant linked lists has every 
 node in a single level.<strong>
 </strong>(<strong>Note: </strong>| represents the bottom pointer.)</span>
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p>&nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:</strong>
+<pre><span style="font-size:18px"><strong>Input:</strong>
 5 -&gt; 10 -&gt; 19 -&gt; 28
 |          |                
 7          22   
@@ -44,7 +44,7 @@ node in a single level.<strong>
 The resultant linked lists has every
 node in a single level.
 
-(<strong>Note: </strong>| represents the bottom pointer.)</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+(<strong>Note: </strong>| represents the bottom pointer.)</span></pre>
 
 <p>&nbsp;</p>
 
