@@ -109,12 +109,19 @@ class Solution {
     //Function to find first node if the linked list has a loop.
     public static int findFirstNode(Node head){
         //code here
-        HashMap<Node,Integer>hs=new HashMap<>();
-        while(head!=null){
-            if(hs.containsKey(head))return head.data;
-            else hs.put(head,1);
-            head=head.next;
+        Node dummy=new Node(-1); dummy.next=head;
+        Node slow=dummy; Node fast=dummy;
+        do{
+            fast=fast.next.next;
+            slow=slow.next;
         }
-        return -1;
+        while(fast!=null&&fast.next!=null&&slow!=fast);
+        if(slow!=fast)
+        return -1; slow=dummy;
+        while(slow!=fast){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        return slow.data;
     }
 }
