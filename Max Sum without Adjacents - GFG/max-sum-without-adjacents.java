@@ -38,12 +38,8 @@ class Solution {
         if(n==1)return arr[0];
         int dp[]=new int[n+1];
         dp[0]=arr[0]; dp[1]=Math.max(dp[0],arr[1]);
-        for(int i=2;i<n;i++){
-            if(i-2>=0)
+        for(int i=2;i<n;i++)
             dp[i]=Math.max(arr[i]+dp[i-2],dp[i-1]);
-            else
-            dp[i]=arr[i];
-        }
         return dp[n-1];
     }
 }
