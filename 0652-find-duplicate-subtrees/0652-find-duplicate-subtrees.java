@@ -24,11 +24,13 @@ class Solution {
         if(root==null)return new String("M");
         String left=solve(root.left);
         String right=solve(root.right);
-        String curr=root.val+"_"+left+"_"+right;
-        if(hs.containsKey(curr))
+        String curr=root.val+"_"+left+"-"+right;
+        if(hs.containsKey(curr)){
+            if(hs.get(curr)==1)
+            ans.add(root);
             hs.put(curr,hs.get(curr)+1);
+        }
         else hs.put(curr,1);
-        if(hs.get(curr)==2) ans.add(root);
         return curr;
     }
 }
