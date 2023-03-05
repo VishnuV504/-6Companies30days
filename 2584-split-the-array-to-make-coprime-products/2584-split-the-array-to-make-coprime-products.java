@@ -9,7 +9,7 @@ class Solution {
             solve(arr[i],pre,suf);
             boolean flag=true;
             for(Integer key:pre.keySet()){
-                if(suf.containsKey(key)&&suf.get(key)>0){
+                if(suf.containsKey(key)){
                     flag=false;
                     break;
                 }
@@ -24,6 +24,7 @@ class Solution {
             if(pre.containsKey(2))pre.put(2,pre.get(2)+1l);
             else pre.put(2,1l);
             suf.put(2,suf.get(2)-1l);
+            if(suf.get(2)==0)suf.remove(2);
             n /= 2;
         }
         for (int i=3;i<=Math.sqrt(n);i+=2){
@@ -31,6 +32,7 @@ class Solution {
                 suf.put(i,suf.get(i)-1l);
                 if(pre.containsKey(i))pre.put(i,pre.get(i)+1l);
                 else pre.put(i,1l);
+                if(suf.get(i)==0)suf.remove(i);
                 n /= i;
             }
         }
@@ -38,6 +40,7 @@ class Solution {
             if(pre.containsKey(n))pre.put(n,pre.get(n)+1l);
             else pre.put(n,1l);
             suf.put(n,suf.get(n)-1l);
+            if(suf.get(n)==0)suf.remove(n);
         }
     }
     public static void preComp(int n,HashMap<Integer,Long>suf){
