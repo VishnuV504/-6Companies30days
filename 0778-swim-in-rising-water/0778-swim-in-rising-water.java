@@ -1,6 +1,6 @@
 class Solution {
     public int swimInWater(int[][] grid) {
-        Queue<Pair>q=new LinkedList<>();
+        Queue<Pair>q=new PriorityQueue<>((a,b)->a.prev-b.prev);
         int m=grid.length; int n=grid[0].length;
         int visited[][]=new int[m][n]; q.add(new Pair(0,0,grid[0][0]));
         for(int i=0;i<m;i++)Arrays.fill(visited[i],Integer.MAX_VALUE);
